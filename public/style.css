@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+html, body{
+    height: 100%;
+    overflow: auto;
+    font-family: Roboto;
+    color: #111111;
+}
+
+/*-------- general text --------*/
+h1{
+    padding-bottom: 30px;
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: bold;
+}
+
+h5{
+    font-weight: normal;
+    color: #999999;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+}
+
+/*-------- navigation bar --------*/
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* fix size / not responsive */
+    width: 940px;
+}
+
+.logo{
+    margin: 30px 50px;
+}
+
+.logo a{
+    font-size: 25px;
+}
+
+.menu {
+    text-align: left;
+    margin: 30px;
+    padding-right: 30px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #111111;
+    font-size:16px;
+    line-height: 26px;
+    margin-right: 20px;
+}
+
+.menu a:hover{
+    text-decoration: none;
+    color: #FBDFDB;
+    font-size:18px;
+    line-height: 28px;
+    transition: ease-in 200ms;
+}
+
+/*-------- main --------*/
+main{
+    /* fix size / not responsive */
+    width: 1040px;
+}
+
+/*-------- box recipes --------*/
+.box{
+    margin: 30px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #FBDFDB;
+    border-radius: 30px;
+}
+
+.box-text{
+    text-align: left;
+    margin: auto 100px;
+}
+
+.box-text p{
+    color: #000000;
+    opacity: 0.7;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.box-img{
+    margin: 50px auto 0 200px;
+}
+
+/*-------- recipes list --------*/
+
+.recipes{
+    margin: 50px;
+}
+
+.recipes-title{
+    margin-bottom: 30px;
+}
+
+.recipes-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+.recipes-item p{
+    padding: 25px 0px 5px 0px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.recipes-item h5{
+    text-align: start;
+    color: #777777;
+}
+
+.recipes-item img{
+    height: 140px;
+    width: 300px;
+    border-radius: 15px;
+}
+
+/*-------- modal --------*/
+.modal-overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal{
+    background-color: #fff;
+    width: 660px;
+    height: 414px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -330px;
+    margin-top: -207px;
+    border-radius: 16px;
+}
+
+.modal-content img{
+    border-radius: 15px;
+    margin: 30px;
+    width: 600px;
+    height: 200px;
+}
+
+.modal-content, .modal-content > h2{
+    text-align: center;
+    font-weight: normal;
+}
+
+.modal-content > p{
+    color: #777777;
+    font-size: 18px;
+    line-height: 28px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.modal .close-modal{
+    font-size: 16px;
+    color: #999999;
+    line-height: 26px;
+    cursor: pointer;
+}
+
+/*-------- modal.active --------*/
+.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+    transition: 200ms;
+}
+
+/*-------- footer --------*/
+footer{
+    padding: 30px;
+    margin: 0;
+    background-color: #EEEEEE;
+    border-top: 1px solid #9999991f;
+}
+
+/*-------- recipe page --------*/
+.recipe-page{
+    margin: 50px;
+    text-align: center;
+}
+
+/*-------- recipe header --------*/
+.recipe-header{
+    width: 940px;
+}
+
+.recipe-header img{
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.recipe-header h1{
+    padding: 5px;
+}
+
+/*-------- recipe main --------*/
+.ingredients-title{
+    text-align: start;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.ingredients-title button{
+    text-decoration: none;
+    font-size: 12px;
+    color: #999999;
+    font-weight: bold;
+    margin-left: 10px;
+    background-color: #fff;
+}
+
+.ingredients-title button:hover{
+    cursor: pointer;
+}
+
+ul{
+    text-align: start;
+    margin: 20px auto;
+    padding: 0px 10px;
+    display: none;
+}
+
+li{
+    margin: 5px;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}
+
+/*-------- recipe ACTIVE --------*/
+

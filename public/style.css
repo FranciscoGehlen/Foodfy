@@ -5,7 +5,6 @@
 }
 html, body{
     height: 100%;
-    overflow: auto;
     font-family: Roboto;
     color: #111111;
 }
@@ -30,8 +29,7 @@ h5{
 .navbar{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    /* fix size / not responsive */
-    width: 940px;
+    width: 100%;
 }
 
 .logo{
@@ -63,20 +61,28 @@ h5{
     line-height: 28px;
     transition: ease-in 200ms;
 }
+/*-------- navbar adm --------*/
+.adm {
+    background-color: #111111;
+}
 
 /*-------- main --------*/
 main{
     /* fix size / not responsive */
-    width: 1040px;
+    width: 100%;
+    text-align: center;
+    margin-left: 50px;
 }
 
 /*-------- box recipes --------*/
 .box{
-    margin: 30px 50px;
+    margin: 30px auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: #FBDFDB;
     border-radius: 30px;
+    width: 1040px;
+    align-items: center;
 }
 
 .box-text{
@@ -85,6 +91,7 @@ main{
 }
 
 .box-text p{
+    text-align: left;
     color: #000000;
     opacity: 0.7;
     font-size: 18px;
@@ -120,7 +127,6 @@ main{
 }
 
 .recipes-item h5{
-    text-align: start;
     color: #777777;
 }
 
@@ -197,13 +203,15 @@ footer{
 
 /*-------- recipe page --------*/
 .recipe-page{
-    margin: 50px;
+    padding: 50px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /*-------- recipe header --------*/
 .recipe-header{
-    width: 940px;
+    width: 100%;
 }
 
 .recipe-header img{
@@ -250,5 +258,52 @@ li{
     line-height: 28px;
 }
 
-/*-------- recipe ACTIVE --------*/
+/*-------- recipes ADM --------*/
+.recipes-title-adm {
+    text-align: left;
+    padding: 24px 0;
+}
 
+.recipes-adm{
+    margin-bottom: 50px;
+}
+
+.recipes-item-adm{
+    display: grid;
+    grid-template-columns: 172px 1fr;
+}
+
+.recipes-list-adm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.recipes-item-details,
+.recipes-item-details h5,
+.recipes-item-details p,
+.recipes-item-details a{
+    text-align: left;
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+
+.recipes-item p{
+    padding: 25px 0px 5px 0px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.recipes-item-adm img{
+    height: 80px;
+    width: 172px;
+    border-radius: 15px;
+}
+
+.recipes-item-details a{
+    font-size: 14px;
+    color: #6558C3;
+    text-decoration: none;
+}

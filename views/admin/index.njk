@@ -1,0 +1,53 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+        <title>Receitas - Foodfy</title>
+        <!-- Main -->
+        <main>
+            
+            <div class="recipes-title-adm">
+                <h2>Gerenciar receitas</h2>
+            </div>
+
+            <!-- Recipes -->
+            <section class="recipes-adm">
+
+                <div class="recipes-list-adm">
+
+                    {%for item in items%}
+                    <!-- Recipe Item -->
+                    <div class="recipes-item-adm" id="{{item.id}}">
+                        <div class="recipes-item-img-adm">
+                            <img src="{{item.image}}" alt="Imagem de {{item.title}}">
+                        </div>
+                        <div class="recipes-item-details">
+                            <p>{{item.title}} <br></p>
+                            <h5>{{item.author}}</h5>
+                            <a href="/">Visualizar</a>
+                        </div>
+                    </div>
+                    {%endfor%}                    
+
+                </div>
+            </section>
+        </main>
+
+
+        <!-- Modal -->
+        <!--
+        <div class="modal-overlay">
+
+            <div class="modal">
+
+                <div class="modal-content">
+                    <img id="modal-img" src="" alt="">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-text"></p>
+                    <a class="close-modal">Fechar modal</a>
+                    
+                </div>
+            </div>
+        </div>
+        -->
+        {% endblock %}

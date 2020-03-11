@@ -7,6 +7,16 @@ for (let recipe of recipes){
     })
 }
 
+// Navbar change
+const currentPage = location.pathname
+const navBar = document.querySelector(".nav")
+const navImg = document.getElementById("logo")
+if (currentPage.includes("admin")){
+    navBar.classList.add("adm")
+    navImg.src = "/assets/logoadm.png"
+}
+
+// Buttons
 function btnToggle1(){
     var ingList = document.getElementById('ing-list')
     var btn1 = document.getElementById('btn1')

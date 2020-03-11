@@ -29,7 +29,7 @@
 
                     {%for item in items%}
                     <!-- Recipe Item -->
-                    <div class="recipes-item">
+                    <div class="recipes-item" id="{{item.id}}">
                         <div class="recipes-item-img">
                             <img src="{{item.image}}" alt="Imagem de {{item.title}}">
                         </div>
@@ -40,5 +40,7 @@
                 </div>
             </section>
         </main>
+
+
 
         {% endblock %}

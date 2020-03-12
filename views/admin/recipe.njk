@@ -1,0 +1,55 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+        <title>{{item.title}} - Foodfy Admin</title>
+
+        <!-- Main -->
+        <main class="recipe-page">
+            <div class="recipe-header-adm">
+                <h2>Receita: {{item.title}}</h2>
+                <a href="/admin/recipes/{{item.id}}/edit">Editar</a>
+            </div>
+            <div class="recipe-header">
+                <img src="{{item.image}}" alt="Imagem de {{item.title}}">
+                <h1 style="font-size: 36px">{{item.title}}<br></h1>
+                <h5 style="font-size: 20px">{{item.author}}</h5>
+            </div>
+
+            <!-- Ingredients -->
+            <div class="ingredients-title">
+                <h2>Ingredientes </h2>
+                <button id="btn1" onclick='btnToggle1()'>MOSTRAR</button>
+            </div>
+            
+            <ul id="ing-list">
+                {%for ingredient in item.ingredients%}
+                <li>{{ingredient}}</li>
+                {%endfor%}
+            </ul>
+
+            <!-- Preparation -->
+            <div class="ingredients-title">
+                <h2>Modo de Preparo </h2>
+                <button id="btn2" onclick= "btnToggle2()">MOSTRAR</button>
+            </div>
+            
+            <ul id="prep-list">
+                {%for prep in item.preparation%}
+                <li>{{prep}}</li>
+                {%endfor%}
+            </ul>
+
+            <!-- Additional info -->
+            <div class="ingredients-title">
+                <h2>Informações adicionais </h2>
+                <button id="btn3" onclick= "btnToggle3()">MOSTRAR</button>
+            </div>
+            
+            <ul id="info-list">
+                <li>{{item.information}}</li>
+            </ul>
+        </main>
+
+
+
+        {% endblock %}

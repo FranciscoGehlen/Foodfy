@@ -1,3 +1,8 @@
+:root {
+    --primary-color: #FBDFDB;
+    --secondary-color: #6558C3;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,6 +12,7 @@ html, body{
     height: 100%;
     font-family: Roboto;
     color: #111111;
+    overflow-x: hidden;
 }
 
 /*-------- general text --------*/
@@ -56,9 +62,7 @@ h5{
 
 .menu a:hover{
     text-decoration: none;
-    color: #FBDFDB;
-    font-size:18px;
-    line-height: 28px;
+    color: var(--primary-color);
     transition: ease-in 200ms;
 }
 /*-------- navbar adm --------*/
@@ -79,7 +83,7 @@ main{
     margin: 30px auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #FBDFDB;
+    background-color: var(--primary-color);
     border-radius: 30px;
     width: 1040px;
     align-items: center;
@@ -262,6 +266,27 @@ li{
 .recipes-title-adm {
     text-align: left;
     padding: 24px 0;
+    display: flex;
+    align-items: center;
+}
+
+.recipes-title-adm h2{
+    margin-right: 24px;    
+}
+
+.recipes-title-adm a{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--secondary-color);
+    padding: 8px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.recipes-title-adm a:hover{
+    color: var(--primary-color);
+    transform: scale(1.1);
+    transition: ease-in-out 200ms;
 }
 
 .recipes-adm{
@@ -304,6 +329,96 @@ li{
 
 .recipes-item-details a{
     font-size: 14px;
-    color: #6558C3;
+    color: var(--secondary-color);
     text-decoration: none;
+}
+
+.recipes-item-details a:hover{
+    color: var(--primary-color);
+    transition: ease-in-out 200ms;
+}
+
+/*-------- New Recipe ADM --------*/
+.form-adm{
+    text-align: left;
+    padding: 16px 0;
+    margin: 16px 0;
+    font-weight: bold;
+    width: 75%;
+}
+
+.item{
+    margin: 16px 0 32px 0;
+}
+
+.form-adm-header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+}
+
+.form-adm-header button{
+    padding: 8px 32px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+}
+
+input{
+    outline: #999999;
+    color: #555;
+    font-size: 18px;
+    border: 1px solid #999;
+    width: 100%;
+    padding: 8px 0 8px 8px;
+    border-radius: 8px;
+    margin-top: 16px;
+    box-sizing: border-box;
+}
+
+input::placeholder{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+button[type="button"]{
+    margin-top: 16px;
+    background-color: white;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button[type="button"]:focus{
+    outline: 0;
+}
+
+/*-------- Show recipe ADM --------*/
+.recipe-header-adm{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    margin-right: 50vw;
+    box-sizing: border-box;
+}
+
+.recipe-header-adm a{
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--secondary-color);
+    padding: 8px;
+    position: relative;
+    border-radius: 8px;
+}
+.recipe-header-adm a:hover{
+    color: var(--primary-color);
+    transform: scale(1.1);
+    transition: ease-in-out 200ms;
 }

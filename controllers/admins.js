@@ -1,4 +1,4 @@
-//const fs =  require('fs')
+const fs =  require('fs')
 const data = require('../data.json')
 
 exports.index = function(req, res){
@@ -6,7 +6,7 @@ exports.index = function(req, res){
 }
 
 exports.create = function(req, res){
-    return res.render('admins/create')
+    return res.render('admin/create')
 }
 
 exports.post = function(req, res){
@@ -20,12 +20,10 @@ exports.post = function(req, res){
         }
     }
 
-    let {avatar_url, birth, name, services, gender} = req.body
+    let {image, title, author, ingredients, preparation} = req.body
 
-    birth = Date.parse(birth)
-    const created_at = Date.now()
     let id = 1
-    const lastAdmin = data.admins[data.admins.length - 1]
+    const lastAdmin = data.recipes[data.recipes.length - 1]
     
     if (lastAdmin) {
         id = lastAdmin.id + 1
@@ -33,20 +31,18 @@ exports.post = function(req, res){
 
     
 
-    data.admins.push({
-        id,
-        avatar_url,
-        name,
-        birth,
-        gender,
-        services,
-        created_at,
+    data.recipes.push({
+        image,
+        title,
+        author,
+        ingredients, 
+        preparation
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 4), function(err){
         if (err) return res.send("Write file error!")
 
-        return res.redirect("/admins")
+        return res.redirect("/admin/recipes")
     })
 
     // return res.send(req.body)
@@ -55,40 +51,36 @@ exports.post = function(req, res){
 exports.show = function(req, res){
     const { id } = req.params
 
-    const foundAdmin = data.admins.find(function(admin){
-        return admin.id == id
+    const foundRecipe = data.recipes.find(function(recipe){
+        return recipe.id == id
     })
 
-    if (!foundAdmin) return res.send("Admin not found")
+    if (!foundRecipe) return res.send("Admin not found")
 
     
 
-    const admin = {
-        ...foundAdmin,
-        age: age(foundAdmin.birth),
-        services: foundAdmin.services.split(","),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foundAdmin.created_at),
+    const recipe = {
+        ...foundRecipe
     }
 
-    return res.render("admins/show", {admin})
+    return res.render("admin/recipe", {item: recipe})
 }
 
 exports.edit = function(req, res){
 
     const { id } = req.params
 
-    const foundAdmin = data.admins.find(function(admin){
-        return admin.id == id
+    const foundRecipe = data.recipes.find(function(recipe){
+        return recipe.id == id
     })
 
-    if (!foundAdmin) return res.send("Admin not found")
+    if (!foundRecipe) return res.send("Admin not found")
 
-    const admin = {
-        ...foundAdmin,
-        birth: date(foundAdmin.birth).iso
+    const recipe = {
+        ...foundRecipe
     }
-    
-    return res.render('admins/edit', { admin })
+
+    return res.render("admin/edit", {item: recipe})
 }
 
 exports.put = function (req, res){

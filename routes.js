@@ -10,8 +10,8 @@ routes.get("/admin/recipes/:id", admins.show); // Exibir detalhes de uma receita
 routes.get("/admin/recipes/:id/edit", admins.edit); // Mostrar formulário de edição de receita
 
 routes.post("/admin/recipes", admins.post); // Cadastrar nova receita
-/* routes.put("/admin/recipes", recipes.put); // Editar uma receita
-routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita */
+routes.put("/admin/recipes", admins.put); // Editar uma receita
+//routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
 
 
 routes.get("/", recipes.index)

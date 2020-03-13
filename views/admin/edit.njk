@@ -2,11 +2,11 @@
 
 {% block content %}
 
-        <title>Nova Receita - Foodfy</title>
+        <title>Editar Receita - Foodfy</title>
         <!-- Main -->
         <main>
             
-            <form action="/admin/recipes" method="POST" class="form-adm">
+            <form action="/admin/recipes?_method=PUT" method="POST" class="form-adm">
                 <div class="form-adm-header">
                     <h2>Editar {{item.title}}</h2>
                     <button type="submit">Salvar</button>
@@ -16,7 +16,7 @@
                     <div class="item">
                         <div>URL da foto da receita</div>
                         <div>
-                            <input type="url" name="image" placeholder="http://">
+                            <input type="url" name="image" placeholder="http://" value="{{item.image}}">
                         </div>
                     </div>
                 </div>
@@ -24,14 +24,14 @@
                 <div class="item">
                     <div>Nome da receita</div>
                     <div>
-                        <input type="text" name="title" placeholder="Nome da Receita">
+                        <input type="text" name="title" placeholder="Nome da Receita" value="{{item.title}}">
                     </div>
                 </div>
 
                 <div class="item">
                     <div>Autor(a)</div>
                     <div>
-                        <input type="text" name="author" placeholder="Nome do(a) autor(a)">
+                        <input type="text" name="author" placeholder="Nome do(a) autor(a)" value="{{item.author}}">
                     </div>
                 </div>
 
@@ -39,21 +39,33 @@
                     <div>Ingredientes</div>
                     <div id="ingredients">
                         <div class="ingredient">
-                            <input type="text" name="ingredients[]" placeholder="Ingrediente">
+                            {% for ingredient in item.ingredients %}
+                            <input type="text" name="ingredients[]" placeholder="Ingrediente" value="{{ingredient}}">
+                            {% endfor %}
                         </div>
                     </div>
-                    <button type="button" class="add-ingredient">Adicionar ingrediente</button>
+                    {# <button type="button" class="add-ingredient">Adicionar ingrediente</button> #}
                 </div>
 
                 <div class="item">
                     <div>Modo de preparo</div>
                     <div id="preparation">
                         <div class="step">
-                            <input type="text" name="preparation[]" placeholder="Passo">
+                            {% for step in item.preparation%}
+                            <input type="text" name="preparation[]" placeholder="Passo" value="{{step}}">
+                            {% endfor %}
                         </div>
                     </div>
-                    <button type="button" class="add-step">Adicionar passo</button>
+                    {# <button type="button" class="add-step">Adicionar passo</button> #}
                 </div>
+
+                <div class="item">
+                    <div>Informações adicionais</div>
+                    <div>
+                        <textarea name="information">{{item.information}}</textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="id" value={{item.id}}>
             </form>
             
         </main>

@@ -219,6 +219,11 @@ footer{
 }
 
 .recipe-header img{
+    height: 280px;
+    width: 940px;
+}
+
+.recipe-header img{
     border-radius: 15px;
     margin-bottom: 50px;
 }
@@ -421,4 +426,18 @@ button[type="button"]:focus{
     color: var(--primary-color);
     transform: scale(1.1);
     transition: ease-in-out 200ms;
+}
+
+textarea{
+    outline: #999999;
+    color: #555;
+    font-size: 18px;
+    border: 1px solid #999;
+    width: 100%;
+    padding: 8px 0 8px 8px;
+    border-radius: 8px;
+    margin-top: 16px;
+    box-sizing: border-box;
+    resize: none;
+    height: 200px;
 }

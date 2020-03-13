@@ -20,23 +20,25 @@ exports.post = function(req, res){
         }
     }
 
-    let {image, title, author, ingredients, preparation} = req.body
+    let {image, title, author, ingredients, preparation, information} = req.body
 
     let id = 1
-    const lastAdmin = data.recipes[data.recipes.length - 1]
+    const lastRecipe = data.recipes[data.recipes.length - 1]
     
-    if (lastAdmin) {
-        id = lastAdmin.id + 1
+    if (lastRecipe) {
+        id = lastRecipe.id + 1
     }
 
     
 
     data.recipes.push({
+        id,
         image,
         title,
         author,
         ingredients, 
-        preparation
+        preparation,
+        information
     })
 
     fs.writeFile("data.json", JSON.stringify(data, null, 4), function(err){
@@ -87,28 +89,27 @@ exports.put = function (req, res){
     const { id } = req.body
     let index = 0
 
-    const foundAdmin = data.admins.find(function(admin, foundIndex){
-        if(id == admin.id){
+    const foundRecipe = data.recipes.find(function(recipes, foundIndex){
+        if(id == recipes.id){
             index = foundIndex
             return true
         }
     })
 
-    if (!foundAdmin) return res.send("Admin not found")
+    if (!foundRecipe) return res.send("Admin not found")
 
-    const admin = {
-        ...foundAdmin,
+    const recipe = {
+        ...foundRecipe,
         ...req.body,
-        birth: Date.parse(req.body.birth),
         id: Number(req.body.id)
     }
 
-    data.admins[index] = admin
+    data.recipes[index] = recipe
 
     fs.writeFile("data.json", JSON.stringify(data,null,4), function(err){
         if (err) return res.send("Write error!")
 
-        return res.redirect(`/admins/${id}`)
+        return res.redirect(`/admin/recipes/${id}`)
     })
 
 }

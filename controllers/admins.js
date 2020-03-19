@@ -97,6 +97,20 @@ exports.put = function (req, res){
     })
 
     if (!foundRecipe) return res.send("Admin not found")
+    
+    var checkIngredients = req.body.ingredients
+    for (var i = 0; i < checkIngredients.length; i++){
+        if (checkIngredients[i] == ''){
+            checkIngredients.splice(i, 1)
+        }
+    }
+    
+    var checkSteps = req.body.preparation
+    for (var i = 0; i < checkSteps.length; i++){
+        if (checkSteps[i] == ''){
+            checkSteps.splice(i, 1)
+        }
+    }
 
     const recipe = {
         ...foundRecipe,
@@ -117,15 +131,15 @@ exports.put = function (req, res){
 exports.delete = function(req, res){
     const { id } = req.body
 
-    const filteredAdmins = data.admins.filter(function(admin){
-        return admin.id != id
+    const filteredRecipes = data.recipes.filter(function(recipe){
+        return recipe.id != id
     })
 
-    data.admins = filteredAdmins
+    data.recipes = filteredRecipes
 
     fs.writeFile("data.json", JSON.stringify(data,null,4), function(err){
         if (err) return res.send("Write file error!")
 
-        return res.redirect("/admins")
+        return res.redirect("/admin/recipes")
     })
 }

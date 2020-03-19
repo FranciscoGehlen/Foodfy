@@ -5,13 +5,15 @@
         <title>Editar Receita - Foodfy</title>
         <!-- Main -->
         <main>
-            
-            <form action="/admin/recipes?_method=PUT" method="POST" class="form-adm">
-                <div class="form-adm-header">
-                    <h2>Editar {{item.title}}</h2>
-                    <button type="submit">Salvar</button>
-                </div>
-
+            <form id="form-delete" action="/admin/recipes?_method=DELETE" method="post">
+                <input type="hidden" name="id" value={{item.id}}>
+            </form>
+            <div class="form-adm-header">
+                <h2>Editar {{item.title}}</h2>
+                <button type="submit" form="form-delete" class="deleteBtn">Deletar</button>
+                <button type="submit" form="form-edit">Salvar receita</button>
+            </div>   
+            <form id="form-edit" action="/admin/recipes?_method=PUT" method="POST" class="form-adm">
                 <div class="form-adm-body">
                     <div class="item">
                         <div>URL da foto da receita</div>
@@ -43,8 +45,11 @@
                             <input type="text" name="ingredients[]" placeholder="Ingrediente" value="{{ingredient}}">
                             {% endfor %}
                         </div>
+                        <div class="ingredient-edit">
+                            <input type="text" name="ingredients[]" placeholder="Ingrediente">
+                        </div>
                     </div>
-                    {# <button type="button" class="add-ingredient">Adicionar ingrediente</button> #}
+                    <button type="button" class="add-ingredient"  onclick="addIngredientEdit()">Adicionar ingrediente</button>
                 </div>
 
                 <div class="item">
@@ -55,8 +60,11 @@
                             <input type="text" name="preparation[]" placeholder="Passo" value="{{step}}">
                             {% endfor %}
                         </div>
+                        <div class="step-edit">
+                            <input type="text" name="preparation[]" placeholder="Passo">
+                        </div>
                     </div>
-                    {# <button type="button" class="add-step">Adicionar passo</button> #}
+                    <button type="button" class="add-step-edit" onclick="addStepEdit()">Adicionar passo</button>
                 </div>
 
                 <div class="item">

@@ -138,21 +138,6 @@
                 "açúcar de confeiteiro e corte em quadrados."
             ],
             "information": ""
-        },
-        {
-            "id": 7,
-            "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=653&q=80",
-            "title": "Ovo cozido",
-            "author": "Francisco Gehlen",
-            "ingredients": [
-                "Ovos",
-                "Agua"
-            ],
-            "preparation": [
-                "Coloque os ovos na agua",
-                "ferva por 5 min ou mais"
-            ],
-            "information": "não queime os ovos"
         }
     ]
 }

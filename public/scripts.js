@@ -68,9 +68,6 @@ function addIngredient() {
     newField.children[0].value = "";
     ingredients.appendChild(newField);
 }
-  
-document.querySelector(".add-ingredient").addEventListener("click", addIngredient);
-
 
 function addStep() {
     const steps = document.querySelector("#preparation");
@@ -87,5 +84,33 @@ function addStep() {
     steps.appendChild(newField);
 }
 
-document.querySelector(".add-step").addEventListener("click", addStep);
+// test edit buttons
+function addStepEdit() {
+    const steps = document.querySelector("#preparation");
+    const fieldContainer = document.querySelectorAll(".step-edit");
+  
+    // Realiza um clone do último stepe adicionado
+    const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+  
+    // Não adiciona um novo input se o último tem um valor vazio
+    if (newField.children[0].value == "") return false;
+  
+    // Deixa o valor do input vazio
+    newField.children[0].value = "";
+    steps.appendChild(newField);
+}
 
+function addIngredientEdit() {
+    const ingredients = document.querySelector("#ingredients");
+    const fieldContainer = document.querySelectorAll(".ingredient-edit");
+  
+    // Realiza um clone do último ingrediente adicionado
+    const newField = fieldContainer[fieldContainer.length - 1].cloneNode(true);
+  
+    // Não adiciona um novo input se o último tem um valor vazio
+    if (newField.children[0].value == "") return false;
+  
+    // Deixa o valor do input vazio
+    newField.children[0].value = "";
+    ingredients.appendChild(newField);
+}

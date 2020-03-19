@@ -11,7 +11,7 @@ routes.get("/admin/recipes/:id/edit", admins.edit); // Mostrar formulário de ed
 
 routes.post("/admin/recipes", admins.post); // Cadastrar nova receita
 routes.put("/admin/recipes", admins.put); // Editar uma receita
-//routes.delete("/admin/recipes", recipes.delete); // Deletar uma receita
+routes.delete("/admin/recipes", admins.delete); // Deletar uma receita
 
 
 routes.get("/", recipes.index)
